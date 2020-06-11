@@ -4,42 +4,29 @@
 namespace Devcapu\Arquitetura;
 
 
+use InvalidArgumentException;
+
 class CPF
 {
     private string $number;
 
     public function __construct(string $number)
     {
-        if ($this->validate($number) === false) {
-            throw new \InvalidArgumentException('CPF is invalid');
-        }
+        $this->validate($number);
         $this->number = $number;
     }
 
-    /**
-     * @param string $number
-     * @return bool
-     */
-    private function validate(string $number): bool
+    private function validate(string $number)
     {
-        $cpf = preg_replace('/[^0-9]/is', '', $number);
+        $options = [
+            'options' => [
+                'regexp' => '/\d{3}\.\d{3}\.\d{3}\-\d{2}/'
+            ]
+        ];
 
-        if (strlen($cpf) != 11) {
-            return false;
-        } else if (preg_match('/(\d)\1{10}/', $cpf)) {
-            return false;
+        if (filter_var($number, FILTER_VALIDATE_REGEXP, $options) === false) {
+            throw new InvalidArgumentException('CPF is invalid');
         }
-
-        for ($t = 9; $t < 11; $t++) {
-            for ($d = 0, $c = 0; $c < $t; $c++) {
-                $d += $cpf[$c] * (($t + 1) - $c);
-            }
-            $d = ((10 * $d) % 11) % 10;
-            if ($cpf[$c] != $d) {
-                return false;
-            }
-        }
-        return true;
     }
 
     public function __toString()
