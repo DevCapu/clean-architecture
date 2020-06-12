@@ -1,9 +1,9 @@
 <?php
 
-namespace Devcapu\Arquitetura\Student;
+namespace Devcapu\Arquitetura\Domain\Student;
 
-use Devcapu\Arquitetura\CPF;
-use Devcapu\Arquitetura\Email;
+use Devcapu\Arquitetura\Domain\CPF;
+use Devcapu\Arquitetura\Domain\Email;
 
 class Student
 {

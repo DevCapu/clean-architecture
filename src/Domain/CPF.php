@@ -1,8 +1,6 @@
 <?php
 
-
-namespace Devcapu\Arquitetura;
-
+namespace Devcapu\Arquitetura\Domain;
 
 use InvalidArgumentException;
 

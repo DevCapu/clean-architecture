@@ -2,6 +2,7 @@
 
 namespace Devcapu\Arquitetura;
 
+use Devcapu\Arquitetura\Domain\Email;
 use PHPUnit\Framework\TestCase;
 
 class EmailTest extends TestCase

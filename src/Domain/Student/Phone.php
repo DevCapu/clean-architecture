@@ -1,6 +1,6 @@
 <?php
 
-namespace Devcapu\Arquitetura\Student;
+namespace Devcapu\Arquitetura\Domain\Student;
 
 class Phone
 {

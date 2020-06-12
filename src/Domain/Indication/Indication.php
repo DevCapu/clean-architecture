@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Devcapu\Arquitetura\Indication;
+namespace Devcapu\Arquitetura\Domain\Indication;
 
 
-use Devcapu\Arquitetura\Student\Student;
+use Devcapu\Arquitetura\Domain\Student\Student;
 
 class Indication
 {

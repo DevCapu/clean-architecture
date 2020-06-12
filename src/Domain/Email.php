@@ -1,8 +1,7 @@
 <?php
 
 
-namespace Devcapu\Arquitetura;
-
+namespace Devcapu\Arquitetura\Domain;
 
 
 class Email

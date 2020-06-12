@@ -4,6 +4,7 @@
 namespace Devcapu\Arquitetura;
 
 
+use Devcapu\Arquitetura\Domain\CPF;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 

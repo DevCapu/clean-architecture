@@ -4,6 +4,7 @@
 namespace Devcapu\Arquitetura;
 
 
+use Devcapu\Arquitetura\Domain\Student\Phone;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
