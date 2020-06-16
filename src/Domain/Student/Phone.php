@@ -13,6 +13,16 @@ class Phone
         $this->setNumber($number);
     }
 
+    public function ddd(): string
+    {
+        return $this->ddd;
+    }
+
+    public function number(): string
+    {
+        return $this->number;
+    }
+
     public function setDDD(string $ddd): void
     {
         if (preg_match('/\d{2}/', $ddd) !== 1) {
@@ -29,7 +39,7 @@ class Phone
         $this->number = $number;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->ddd . $this->number;
     }
