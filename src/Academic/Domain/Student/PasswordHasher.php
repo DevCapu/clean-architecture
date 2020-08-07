@@ -1,6 +1,6 @@
 <?php
 
-namespace Devcapu\Arquitetura\Domain\Student;
+namespace Devcapu\Arquitetura\Academic\Domain\Student;
 
 interface PasswordHasher
 {

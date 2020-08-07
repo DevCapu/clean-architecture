@@ -2,10 +2,12 @@
 
 namespace Devcapu\Arquitetura\Infra\Student;
 
-use Devcapu\Arquitetura\Domain\CPF;
-use Devcapu\Arquitetura\Domain\Student\Student;
+use Devcapu\Arquitetura\Academic\Domain\CPF;
+use Devcapu\Arquitetura\Academic\Domain\Student\Student;
+use Devcapu\Arquitetura\Academic\Domain\Student\StudentRepository;
+use Exception;
 
-class StudentRepositoryInMemory implements \Devcapu\Arquitetura\Domain\Student\StudentRepository
+class StudentRepositoryInMemory implements StudentRepository
 {
 
     private array $students = [];
@@ -20,12 +22,14 @@ class StudentRepositoryInMemory implements \Devcapu\Arquitetura\Domain\Student\S
         $returnedStudents = array_filter($this->students, fn(Student $student) => $student->cpf() == $cpf);
 
         if (count($returnedStudents) === 0) {
-            throw new \Exception('Student not found');
-        } else if (count($returnedStudents) > 0) {
-            throw new \Exception('There are more than one student with this cpf');
-        } else {
-            return $returnedStudents[0];
+            throw new Exception('Student not found');
         }
+
+        if (count($returnedStudents) > 1) {
+            throw new Exception('There are more than one student with this cpf');
+        }
+
+        return $returnedStudents[0];
     }
 
     public function all(): array

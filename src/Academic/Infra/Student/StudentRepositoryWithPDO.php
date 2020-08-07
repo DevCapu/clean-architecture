@@ -2,9 +2,9 @@
 
 namespace Devcapu\Arquitetura\Infra\Student;
 
-use Devcapu\Arquitetura\Domain\CPF;
-use Devcapu\Arquitetura\Domain\Student\Student;
-use Devcapu\Arquitetura\Domain\Student\StudentRepository;
+use Devcapu\Arquitetura\Academic\Domain\CPF;
+use Devcapu\Arquitetura\Academic\Domain\Student\Student;
+use Devcapu\Arquitetura\Academic\Domain\Student\StudentRepository;
 use PDO;
 
 class StudentRepositoryWithPDO implements StudentRepository

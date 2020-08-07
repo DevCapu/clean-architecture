@@ -1,12 +1,14 @@
 <?php
 
-namespace Devcapu\Arquitetura\Domain\Student;
+namespace Devcapu\Arquitetura\Academic\Domain\Student;
 
-use Devcapu\Arquitetura\Domain\CPF;
-use Devcapu\Arquitetura\Domain\Email;
+use Devcapu\Arquitetura\Academic\Domain\CPF;
+use Devcapu\Arquitetura\Academic\Domain\Email;
+use DomainException;
 
 class Student
 {
+    const MAX_PHONE_NUMBERS_PER_STUDENT = 2;
     private CPF $cpf;
     private string $name;
     private Email $email;
@@ -27,11 +29,15 @@ class Student
 
     public function addPhone(string $ddd, string $number): self
     {
+        self::MAX_PHONE_NUMBERS_PER_STUDENT;
+        if (count($this->phones) === self::MAX_PHONE_NUMBERS_PER_STUDENT) {
+            throw new DomainException('Student already have 2 cellphone numbers');
+        }
         $this->phones[] = new Phone($ddd, $number);
         return $this;
     }
 
-    public function cpf(): string
+    public function cpf(): CPF
     {
         return $this->cpf;
     }

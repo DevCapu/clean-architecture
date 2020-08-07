@@ -2,7 +2,7 @@
 
 namespace Devcapu\Arquitetura\Infra\Student;
 
-use Devcapu\Arquitetura\Domain\Student\PasswordHasher;
+use Devcapu\Arquitetura\Academic\Domain\Student\PasswordHasher;
 
 class HashPasswordMd5 implements PasswordHasher
 {

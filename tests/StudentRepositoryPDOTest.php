@@ -2,8 +2,8 @@
 
 namespace Devcapu\Arquitetura\Testes;
 
-use Devcapu\Arquitetura\Domain\CPF;
-use Devcapu\Arquitetura\Domain\Student\Student;
+use Devcapu\Arquitetura\Academic\Domain\CPF;
+use Devcapu\Arquitetura\Academic\Domain\Student\Student;
 use Devcapu\Arquitetura\Infra\Student\StudentRepositoryWithPDO;
 use PDO;
 use PHPUnit\Framework\TestCase;
@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 class StudentRepositoryPDOTest extends TestCase
 {
 
-    public function testCanSaveNewStudent()
+    public function testCanSaveNewStudent(): void
     {
         $pdo = new PDO("sqlite:" . __DIR__ . "/../database.sqlite");
         $repository = new StudentRepositoryWithPDO($pdo);

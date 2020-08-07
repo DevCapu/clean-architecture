@@ -2,9 +2,10 @@
 
 namespace Devcapu\Arquitetura\Testes\Domain;
 
-use Devcapu\Arquitetura\Application\Student\EnrollStudent;
-use Devcapu\Arquitetura\Application\Student\EnrollStudentDto;
-use Devcapu\Arquitetura\Domain\CPF;
+use Devcapu\Arquitetura\Academic\Application\Student\EnrollStudent;
+use Devcapu\Arquitetura\Academic\Application\Student\EnrollStudentDto;
+use Devcapu\Arquitetura\Academic\Domain\CPF;
+use Devcapu\Arquitetura\Infra\Student\StudentRepositoryInMemory;
 use PHPUnit\Framework\TestCase;
 
 class EnrollStudentTest extends TestCase
@@ -13,7 +14,7 @@ class EnrollStudentTest extends TestCase
     {
         $studentData = new EnrollStudentDto(
             '491.215.308-74',
-            'Felipe Moreno',
+            'Felipe Moreno Borges',
             'email@example.com'
         );
 
@@ -23,8 +24,8 @@ class EnrollStudentTest extends TestCase
 
 
         $student = $studentRepository->searchByCpf(new CPF('491.215.308-74'));
-        $this->assertSame('Felipe Moreno Borges', (string)$student->name());
-        $this->assertSame('email@example.com', (string)$student->emaill());
+        $this->assertSame('Felipe Moreno Borges', $student->name());
+        $this->assertSame('email@example.com', $student->email());
         $this->assertEmpty($student->phones());
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Devcapu\Arquitetura\Domain\Student;
+namespace Devcapu\Arquitetura\Academic\Domain\Student;
 
-use Devcapu\Arquitetura\Domain\CPF;
+use Devcapu\Arquitetura\Academic\Domain\CPF;
 
 interface StudentRepository
 {
